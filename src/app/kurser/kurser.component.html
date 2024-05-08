@@ -37,9 +37,9 @@
       </ng-container>
 
       <ng-container matColumnDef="button">
-        <th mat-header-cell  *matHeaderCellDef ></th>
-        <td mat-cell *matCellDef="let row" >
-          <button mat-button id="{{row.courseCode}}">Lägg till</button>
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-button (click)="addCourseToSchedule(row)" matTooltip="Add Course">Lägg till</button>
         </td>
       </ng-container>
 

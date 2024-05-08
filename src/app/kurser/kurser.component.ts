@@ -82,6 +82,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule, MatIconButton } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { SchemaService } from '../services/schema.service';
 
 
 export interface CourseData {
@@ -111,7 +112,7 @@ export class KurserComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private listService: ListService) {}
+  constructor(private listService: ListService, private schemaService: SchemaService) {}
 
   ngOnInit() {
     this.listService.getCourses().subscribe((data: CourseData[]) => {
@@ -148,5 +149,9 @@ export class KurserComponent implements AfterViewInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+  addCourseToSchedule(course: CourseData) {
+    this.schemaService.addCourse(course);
+    console.log('Course added:', course);
   }
 }
