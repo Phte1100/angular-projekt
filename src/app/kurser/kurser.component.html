@@ -1,6 +1,15 @@
 <mat-form-field>
     <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Webbutveckling" #input>
+  </mat-form-field>
+
+  <<mat-form-field appearance="fill">
+    <mat-label>Choose a subject</mat-label>
+    <mat-select [formControl]="subjectControl">
+      <mat-option *ngFor="let subject of subjectList" [value]="subject">
+        {{ subject }}
+      </mat-option>
+    </mat-select>
   </mat-form-field>
   
   <div class="mat-elevation-z8">

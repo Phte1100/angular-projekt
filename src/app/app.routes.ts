@@ -8,7 +8,7 @@ export const routes: Routes = [
     { path: 'index', component: IndexComponent},
     { path: 'kurser', component: KurserComponent},
     { path: 'ramschema', component: RamschemaComponent },
-    { path: '', redirectTo: '/home', pathMatch: 'full'}
+    { path: '', redirectTo: '/index', pathMatch: 'full'}
 ];
 
 @NgModule({
