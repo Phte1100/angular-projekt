@@ -80,6 +80,8 @@ import {ListService} from '../services/list.service';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule, MatIconButton } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 export interface CourseData {
@@ -94,7 +96,7 @@ export interface CourseData {
   standalone: true,
   imports: [
     MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule,
-    FormsModule, ReactiveFormsModule, MatSelectModule, CommonModule
+    FormsModule, ReactiveFormsModule, MatSelectModule, CommonModule, MatTooltipModule, MatIconButton, MatButtonModule
   ],
   templateUrl: './kurser.component.html',
   styleUrls: ['./kurser.component.scss']
@@ -103,7 +105,7 @@ export class KurserComponent implements AfterViewInit {
   subjectControl = new FormControl('');  // Se till att denna rad är korrekt definierad
   subjectList: string[] = [];
 
-  displayedColumns: string[] = ['courseCode', 'courseName', 'points', 'subject'];
+  displayedColumns: string[] = ['courseCode', 'courseName', 'points', 'subject', 'button'];
   dataSource = new MatTableDataSource<CourseData>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
