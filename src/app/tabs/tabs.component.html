@@ -1,9 +1,19 @@
 <nav mat-tab-nav-bar [backgroundColor]="background" [tabPanel]="tabPanel">
-    <a mat-tab-link routerLink="/index" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">Startsidan</a>
-    <a mat-tab-link routerLink="/kurser" routerLinkActive #rlb="routerLinkActive" [active]="rlb.isActive">Kurser</a>
-    <a mat-tab-link routerLink="/ramschema" routerLinkActive #rlc="routerLinkActive" [active]="rlc.isActive">Ramschema</a>
-  </nav>
-  <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+  <a mat-tab-link routerLink="/index" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">
+    <mat-icon>home</mat-icon>
+    Startsidan
+  </a>
+  <a mat-tab-link routerLink="/kurser" routerLinkActive #rlb="routerLinkActive" [active]="rlb.isActive">
+    <mat-icon>school</mat-icon>
+    Kurser
+  </a>
+  <a mat-tab-link routerLink="/ramschema" routerLinkActive #rlc="routerLinkActive" [active]="rlc.isActive">
+    <mat-icon>schedule</mat-icon>
+    Ramschema
+  </a>
+</nav>
+<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+
 
 
   

@@ -3,11 +3,12 @@ import {ThemePalette} from '@angular/material/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
 import { RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-tabs',
   standalone: true,
-  imports: [MatTabsModule, MatButtonModule, RouterModule],
+  imports: [MatTabsModule, MatButtonModule, RouterModule, MatIconModule],
   templateUrl: './tabs.component.html',
   styleUrl: './tabs.component.scss'
 })

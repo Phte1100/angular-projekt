@@ -1,1 +1,16 @@
 <h1 style="color: white;">INDEX TEST</h1>
+
+<div id="ikoner">
+  <p>kurser.io +</p>
+  <div id="carouselWrapper">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item" *ngFor="let logo of logos; let i = index" [class.active]="i === 0">
+          <img [src]="logo" class="d-block" alt="University Logo">
+        </div>
+      </div>
+    </div>
+  </div>
+  <p>=</p>
+  <mat-icon>favorite_outline</mat-icon>
+</div>

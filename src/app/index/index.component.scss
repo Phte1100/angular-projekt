@@ -1,0 +1,63 @@
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#ikoner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 64px;
+  animation: fadeIn 4s ease-in-out forwards;
+}
+
+#carouselWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px; // Ställ in en fast bredd på carousel-behållaren
+  height: 100px; // Ställ in en fast höjd på carousel-behållaren
+  overflow: hidden; // Döljer innehåll som överskrider behållarens storlek
+}
+
+.carousel-inner {
+  display: flex;
+  align-items: center;
+  height: 100%; // Säkerställer att innerhöjden matchar behållarens höjd
+}
+
+.carousel-inner img {
+  width: 200px; // Fast bredd på bilderna
+  max-width: 100%;
+  height: 100px; // Fast höjd på bilderna
+  object-fit: contain; // Anpassar bilden inom ramen utan att förvränga
+  margin: auto;
+}
+
+mat-icon {
+  display: flex;
+  color: red;
+  width: 150px;
+  height: 200px;
+  font-size: 100px;
+  justify-content: center;
+  align-items: center;
+  animation: pulse 4s infinite;
+}

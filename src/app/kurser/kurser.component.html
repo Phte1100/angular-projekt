@@ -3,7 +3,7 @@
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Webbutveckling" #input>
   </mat-form-field>
 
-  <<mat-form-field appearance="fill">
+  <mat-form-field appearance="fill">
     <mat-label>Choose a subject</mat-label>
     <mat-select [formControl]="subjectControl">
       <mat-option *ngFor="let subject of subjectList" [value]="subject">
