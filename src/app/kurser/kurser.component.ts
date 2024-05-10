@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { SchemaService } from '../services/schema.service';
+import {MatIconModule} from '@angular/material/icon';
 
 
 export interface CourseData {
@@ -26,7 +27,7 @@ export interface CourseData {
   standalone: true,
   imports: [
     MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule,
-    FormsModule, ReactiveFormsModule, MatSelectModule, CommonModule, MatTooltipModule, MatButtonModule, MatSnackBarModule
+    FormsModule, ReactiveFormsModule, MatSelectModule, CommonModule, MatTooltipModule, MatButtonModule, MatSnackBarModule, MatIconModule 
   ],
   templateUrl: './kurser.component.html',
   styleUrls: ['./kurser.component.scss']

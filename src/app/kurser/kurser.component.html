@@ -39,7 +39,7 @@
       <ng-container matColumnDef="button">
         <th mat-header-cell *matHeaderCellDef> </th>
         <td mat-cell *matCellDef="let row">
-          <button mat-button (click)="addCourseToSchedule(row)" matTooltip="Add Course">Lägg till</button>
+          <button mat-icon-button aria-label="plus-tecken" (click)="addCourseToSchedule(row)" matTooltip="Lägg till i ramschemat"><mat-icon>add</mat-icon></button>
         </td>
       </ng-container>
 
