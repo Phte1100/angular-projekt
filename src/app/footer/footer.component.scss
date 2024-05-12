@@ -1,0 +1,38 @@
+.footer {
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    color: white;
+    height:auto;
+  
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .icon-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px; // Mellanrum mellan ikonerna
+  
+      a {
+        color: white;
+        text-decoration: none;
+        &:hover {
+          color: #ff4081; // secondary color on hover
+        }
+      }
+    }
+  
+    .footer-text {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 16px;
+    }
+  }
+  
