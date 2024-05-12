@@ -1,0 +1,32 @@
+.hero-image {
+    max-width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.hero-text {
+    text-align: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-text h1 {
+    font-size: 95px;
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 600;
+  }
+
+  .hero-text p {
+    margin-top: 5%;
+    font-size: 24px;
+  }

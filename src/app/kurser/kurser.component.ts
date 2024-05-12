@@ -36,7 +36,7 @@ export class KurserComponent implements AfterViewInit {
   subjectControl = new FormControl('');  // Se till att denna rad är korrekt definierad
   subjectList: string[] = [];
 
-  displayedColumns: string[] = ['courseCode', 'courseName', 'points', 'subject', 'button'];
+  displayedColumns: string[] = ['courseCode', 'courseName', 'points', 'subject', 'syllabus', 'button'];
   dataSource = new MatTableDataSource<CourseData>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

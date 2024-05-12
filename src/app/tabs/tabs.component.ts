@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {ThemePalette} from '@angular/material/core';
-import {MatButtonModule} from '@angular/material/button';
-import {MatTabsModule} from '@angular/material/tabs';
+import { ThemePalette } from '@angular/material/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -10,7 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
   standalone: true,
   imports: [MatTabsModule, MatButtonModule, RouterModule, MatIconModule],
   templateUrl: './tabs.component.html',
-  styleUrl: './tabs.component.scss'
+  styleUrls: ['./tabs.component.scss'] // Detta ska vara korrekt
 })
 export class TabsComponent {
   links = ['Hem', 'Kurser', 'Ramschema'];
@@ -20,7 +20,6 @@ export class TabsComponent {
   toggleBackground() {
     this.background = this.background ? undefined : 'primary';
   }
-
 
   addLink() {
     this.links.push(`Link ${this.links.length + 1}`);

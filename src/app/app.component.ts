@@ -11,4 +11,6 @@ import { TabsComponent } from './tabs/tabs.component';
 })
 export class AppComponent {
   title = 'projekt';
+
+  classImage: string = "assets/images/mikael-kristenson-3aVlWP-7bg8-unsplash.avif"; //Bild som används för data binding
 }

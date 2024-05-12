@@ -9,6 +9,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSort, Sort, MatSortModule } from '@angular/material/sort';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-ramschema',
@@ -16,7 +17,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
   styleUrls: ['./ramschema.component.scss'],
   standalone: true,
   imports: [
-    CommonModule, MatTableModule, MatButtonModule, MatTooltipModule, MatExpansionModule, MatSortModule, MatSnackBarModule
+    CommonModule, MatTableModule, MatButtonModule, MatTooltipModule, MatExpansionModule, MatSortModule, MatSnackBarModule, MatIconModule
   ]
 })
 export class RamschemaComponent implements OnInit, AfterViewInit {

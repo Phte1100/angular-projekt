@@ -25,7 +25,9 @@
   justify-content: center;
   align-items: center;
   font-size: 64px;
+  font-weight: 600;
   animation: fadeIn 4s ease-in-out forwards;
+  font-family: "Poetsen One", sans-serif;
 }
 
 #carouselWrapper {
@@ -41,6 +43,8 @@
   display: flex;
   align-items: center;
   height: 100%; // Säkerställer att innerhöjden matchar behållarens höjd
+  margin-left: 1%;
+  margin-right: 1%;
 }
 
 .carousel-inner img {
