@@ -3,12 +3,20 @@
   margin: auto;
 }
 
-mat-form-field {
-  width: 30%;
+.filter {
   margin: auto;
   margin-top: 1%;
   display: flex;
   justify-content: center;
+
+}
+
+#input {
+  padding-right: 2%;
+}
+
+#select {
+  padding-left: 2%;
 }
 
 a {

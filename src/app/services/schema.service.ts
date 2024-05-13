@@ -5,28 +5,31 @@ import { CourseData } from '../kurser/kurser.component';
   providedIn: 'root'
 })
 export class SchemaService {
-
-  private storageKey = 'ramschema';
+  private readonly localStorageKey = 'ramschema';
 
   constructor() {}
 
-  // Lägg till kurs till localStorage
-  addCourse(course: CourseData) {
-    const currentSchema = this.getCourses();
-    currentSchema.push(course);
-    localStorage.setItem(this.storageKey, JSON.stringify(currentSchema));
-  }
-
-  // Hämta kurser från localStorage
   getCourses(): CourseData[] {
-    const storedSchema = localStorage.getItem(this.storageKey);
-    return storedSchema ? JSON.parse(storedSchema) : [];
+    const storedCourses = localStorage.getItem(this.localStorageKey);
+    return storedCourses ? JSON.parse(storedCourses) : [];
   }
 
-  // Ta bort kurs från localStorage
+  addCourse(course: CourseData) {
+    const courses = this.getCourses();
+    if (!this.courseExists(course.courseCode)) {
+      courses.push(course);
+      localStorage.setItem(this.localStorageKey, JSON.stringify(courses));
+    }
+  }
+
   removeCourse(courseCode: string) {
-    let currentSchema = this.getCourses();
-    currentSchema = currentSchema.filter(course => course.courseCode !== courseCode);
-    localStorage.setItem(this.storageKey, JSON.stringify(currentSchema));
+    let courses = this.getCourses();
+    courses = courses.filter(course => course.courseCode !== courseCode);
+    localStorage.setItem(this.localStorageKey, JSON.stringify(courses));
+  }
+
+  public courseExists(courseCode: string): boolean {
+    const courses = this.getCourses();
+    return courses.some(course => course.courseCode === courseCode);
   }
 }

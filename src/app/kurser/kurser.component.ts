@@ -12,8 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { SchemaService } from '../services/schema.service';
-import {MatIconModule} from '@angular/material/icon';
-
+import { MatIconModule } from '@angular/material/icon';
 
 export interface CourseData {
   courseCode: string;
@@ -33,7 +32,7 @@ export interface CourseData {
   styleUrls: ['./kurser.component.scss']
 })
 export class KurserComponent implements AfterViewInit {
-  subjectControl = new FormControl('');  // Se till att denna rad är korrekt definierad
+  subjectControl = new FormControl('');
   subjectList: string[] = [];
 
   displayedColumns: string[] = ['courseCode', 'courseName', 'points', 'subject', 'syllabus', 'button'];
@@ -80,10 +79,17 @@ export class KurserComponent implements AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
   addCourseToSchedule(course: CourseData) {
-    this.schemaService.addCourse(course);
-    this.snackBar.open(`${course.courseName} tillagt i ramschemat`, 'Stäng', {
-      duration: 2000,
-    });
+    if (this.schemaService.courseExists(course.courseCode)) {
+      this.snackBar.open(`${course.courseName} är redan tillagt i ramschemat`, 'Stäng', {
+        duration: 2000,
+      });
+    } else {
+      this.schemaService.addCourse(course);
+      this.snackBar.open(`${course.courseName} tillagt i ramschemat`, 'Stäng', {
+        duration: 2000,
+      });
+    }
   }
 }
