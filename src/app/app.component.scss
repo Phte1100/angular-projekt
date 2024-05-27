@@ -34,4 +34,16 @@
 
   main {
     margin-bottom: 10%;
+    margin-top: 1%;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  @media only screen and (max-width: 450px) {
+    .hero-text h1  {
+      font-size: 60px;
+    }
   }

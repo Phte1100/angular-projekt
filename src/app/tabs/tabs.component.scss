@@ -9,3 +9,9 @@
   border-bottom: 3px solid currentColor; /* Justera tjockleken efter behov */
 }
 
+@media only screen and (max-width: 800px) {
+  #test {
+    width: 100%;
+  }
+}
+

@@ -16,7 +16,12 @@ export class IndexComponent implements AfterViewInit, OnDestroy {
   Miun_logotyp_CMYK: string = 'assets/images/Miun_logotyp_CMYK.svg';
   logos: string[] = [
     'assets/images/Miun_logotyp_CMYK.svg',
-    'assets/images/mau_sv_logotyp.svg'
+    'assets/images/mau_sv_logotyp.svg',
+    'assets/images/Logotyp_Lunds_universitet_(vit).png',
+    'assets/images/umu-logo-SE.svg',
+    'assets/images/KTH-logo.png',
+    'assets/images/sthlm_universitet.png',
+    'assets/images/1920px-Linkoping_University_Logo.png'
   ];
   carousel: any;
 

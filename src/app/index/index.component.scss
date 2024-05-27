@@ -77,3 +77,15 @@ mat-icon {
   margin: auto;
   animation: fadeIn 4s ease-in-out forwards;
 }
+
+@media only screen and (max-width: 1200px) {
+  .intro  {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .intro  {
+    width: 80%;
+  }
+}

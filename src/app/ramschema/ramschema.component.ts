@@ -21,7 +21,7 @@ import {MatIconModule} from '@angular/material/icon';
   ]
 })
 export class RamschemaComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['courseCode', 'courseName', 'points', 'subject', 'remove'];
+  displayedColumns: string[] = ['courseCode', 'courseName', 'points', 'subject', 'syllabus', 'remove'];
   dataSource = new MatTableDataSource<CourseData>();
   courses: CourseData[] = [];
 

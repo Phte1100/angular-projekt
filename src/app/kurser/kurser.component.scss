@@ -28,3 +28,9 @@ a:hover {
   font-weight: 600;
   text-decoration: underline;
 }
+
+@media only screen and (max-width: 750px) {
+  .list {
+    width: 100%;
+  }
+}
