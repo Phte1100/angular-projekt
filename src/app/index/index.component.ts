@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, AfterViewInit, OnDestroy, Renderer2 } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
+// Deklarera den globala bootstrap-variabeln för karusellfunktionalitet
 declare var bootstrap: any;
 
 @Component({
@@ -13,7 +14,10 @@ declare var bootstrap: any;
 })
 export class IndexComponent implements AfterViewInit, OnDestroy {
 
+  // Definiera en sträng för standardlogotypen
   Miun_logotyp_CMYK: string = 'assets/images/Miun_logotyp_CMYK.svg';
+
+  // Array med logotyper som ska visas i karusellen
   logos: string[] = [
     'assets/images/Miun_logotyp_CMYK.svg',
     'assets/images/mau_sv_logotyp.svg',
@@ -36,7 +40,7 @@ export class IndexComponent implements AfterViewInit, OnDestroy {
       this.carousel.dispose();
     }
   }
-
+// Metod för att initiera Bootstrap-karusellen
   initializeCarousel() {
     const carouselElement = document.querySelector('#carouselExampleIndicators');
     if (carouselElement) {

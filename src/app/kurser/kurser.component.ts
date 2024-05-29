@@ -14,6 +14,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { SchemaService } from '../services/schema.service';
 import { MatIconModule } from '@angular/material/icon';
 
+// Definiera interfacen för CourseDara
 export interface CourseData {
   courseCode: string;
   courseName: string;
@@ -24,7 +25,7 @@ export interface CourseData {
 @Component({
   selector: 'app-kurser',
   standalone: true,
-  imports: [
+  imports: [ // Importera moduler som behövs för komponenten
     MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule,
     FormsModule, ReactiveFormsModule, MatSelectModule, CommonModule, MatTooltipModule, MatButtonModule, MatSnackBarModule, MatIconModule 
   ],
@@ -32,17 +33,20 @@ export interface CourseData {
   styleUrls: ['./kurser.component.scss']
 })
 export class KurserComponent implements AfterViewInit {
-  subjectControl = new FormControl('');
-  subjectList: string[] = [];
+  subjectControl = new FormControl(''); // Kontroll för att hantera ämnesfilter
+  subjectList: string[] = []; // Lista för att lagra unika ämnen
 
+  // Definiera vilka kolumner som ska visas i tabellen
   displayedColumns: string[] = ['courseCode', 'courseName', 'points', 'subject', 'syllabus', 'button'];
   dataSource = new MatTableDataSource<CourseData>();
 
+  // Länk till paginator och sorteringskomponenter
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private listService: ListService, private schemaService: SchemaService, private snackBar: MatSnackBar) {}
 
+  // Prenumerera på kurser från ListService och initiera datatabellen
   ngOnInit() {
     this.listService.getCourses().subscribe((data: CourseData[]) => {
       this.dataSource.data = data;
@@ -53,11 +57,13 @@ export class KurserComponent implements AfterViewInit {
     this.subjectControl.valueChanges.subscribe(value => this.applySubjectFilter(value!));
   }
 
+  // Initialisera paginator och sorteringsfunktioner
   initDataSource() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
 
+  // Extrahera och sätt unika ämnen från kursdata
   setSubjects(data: CourseData[]) {
     const subjects = new Set(data.map(course => course.subject));
     this.subjectList = Array.from(subjects);
@@ -72,6 +78,7 @@ export class KurserComponent implements AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
+  // Tillämpa filter på alla kolumner baserat på input
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -80,6 +87,7 @@ export class KurserComponent implements AfterViewInit {
     }
   }
 
+  // Lägg till en kurs i ramschemat och visa feedback
   addCourseToSchedule(course: CourseData) {
     if (this.schemaService.courseExists(course.courseCode)) {
       this.snackBar.open(`${course.courseName} är redan tillagt i ramschemat`, 'Stäng', {

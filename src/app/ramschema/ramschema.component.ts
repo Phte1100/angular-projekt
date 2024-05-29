@@ -22,30 +22,37 @@ import {MatIconModule} from '@angular/material/icon';
 })
 export class RamschemaComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['courseCode', 'courseName', 'points', 'subject', 'syllabus', 'remove'];
+  // DataSource som används av MatTable för att visa kursdata
   dataSource = new MatTableDataSource<CourseData>();
+    // Lista som håller alla kurser
   courses: CourseData[] = [];
 
   @ViewChild(MatSort) sort!: MatSort;
 
+    // Konstruktor där beroenden injiceras
   constructor(private schemaService: SchemaService, private _liveAnnouncer: LiveAnnouncer, private snackBar: MatSnackBar) {}
 
+  // Initialiserar komponenten och laddar in kurser från service
   ngOnInit() {
     this.courses = this.schemaService.getCourses();
     this.dataSource.data = this.courses; // Tilldela data direkt till dataSource
   }
-
+  // Aktivera sortering efter att vyn initialiserats
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
   }
 
+  // Räkna antal kurser
   get courseCount(): number {
     return this.courses.length;
   }
 
+  // Beräkna totala poängen för kurserna i ramschemat
   get totalPoints(): number {
     return this.courses.reduce((acc, course) => acc + course.points, 0);
   }
 
+  // Ta bort en kurs från ramschemat och uppdatera listan
   removeCourse(courseCode: string) {
     const course = this.courses.find(c => c.courseCode === courseCode);
     if (course) {
@@ -58,7 +65,7 @@ export class RamschemaComponent implements OnInit, AfterViewInit {
     }
   }
 
-  /** Announce the change in sort state for assistive technology. */
+  // Tillkännager sorteringsändringar för hjälpmedelsteknik
   announceSortChange(sortState: Sort) {
     if (sortState.direction) {
       this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
