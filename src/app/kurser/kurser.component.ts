@@ -70,7 +70,10 @@ export class KurserComponent implements AfterViewInit {
   }
 
   applySubjectFilter(value: string) {
-    this.dataSource.filter = value.trim().toLowerCase();
+    this.dataSource.filterPredicate = (data: CourseData, filter: string) => {
+      return data.subject === filter;
+    };
+    this.dataSource.filter = value.trim();
   }
 
   ngAfterViewInit() {
